@@ -2,13 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='sitepy',
-    version='0.0.1',
+    version='0.0.4',
     description='A simple web framework.',
     author='WolfTheDev',
     author_email='wolfthedev@gmail.com',
     url='https://github.com/WolfTheDeveloper/sitepy',
     packages=find_packages(),
-    long_description=open('README.md').read(),
+    long_description=open('sitepy/README.md').read(),
+    long_description_content_type='text/markdown',  # Add this line
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
