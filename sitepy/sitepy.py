@@ -4,10 +4,19 @@ from wsgiref.simple_server import make_server
 import inspect
 
 class SitePy:
-    def __init__(self, static_dir='static'):
+    def __init__(self, static_dir='static', templates_dir='templates'):
         self.routes = {}
         self.middleware = [self.logger_middleware]
         self.static_dir = static_dir
+        self.templates_dir = templates_dir
+
+    def render_template(self, template_name, context={}):
+        template_path = os.path.join(self.templates_dir, template_name)
+        with open(template_path, 'r') as f:
+            template = f.read()
+        for key, value in context.items():
+            template = template.replace(f'{{{{ {key} }}}}', value)
+        return template
 
     def route(self, path, methods=['GET']):
         def wrapper(handler):
