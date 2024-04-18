@@ -4,10 +4,19 @@ from wsgiref.simple_server import make_server
 import inspect
 
 class SitePy:
-    def __init__(self, static_dir='static'):
+    def __init__(self, static_dir='static', templates_dir='templates'):
         self.routes = {}
         self.middleware = [self.logger_middleware]
         self.static_dir = static_dir
+        self.templates_dir = templates_dir
+
+    def render_template(self, template_name, context={}):
+        template_path = os.path.join(self.templates_dir, template_name)
+        with open(template_path, 'r') as f:
+            template = f.read()
+        for key, value in context.items():
+            template = template.replace(f'{{{{ {key} }}}}', value)
+        return template
 
     def route(self, path, methods=['GET']):
         def wrapper(handler):
@@ -41,7 +50,7 @@ class SitePy:
             handler_args = inspect.signature(handler).parameters
             response_body = handler(params) if handler_args else handler()
             status = '200 OK'
-            headers = [('Content-type', 'text/plain')]
+            headers = [('Content-type', 'text/html')]
             start_response(status, headers)
             return [response_body.encode()]
         elif path.startswith('/' + self.static_dir):
@@ -54,12 +63,12 @@ class SitePy:
                 return [response_body]
             except FileNotFoundError:
                 status = '404 NOT FOUND'
-                headers = [('Content-type', 'text/plain')]
+                headers = [('Content-type', 'text/html')]
                 start_response(status, headers)
                 return ['File not found'.encode()]
         else:
             status = '404 NOT FOUND'
-            headers = [('Content-type', 'text/plain')]
+            headers = [('Content-type', 'text/html')]
             start_response(status, headers)
             return ['Route not found'.encode()]
 

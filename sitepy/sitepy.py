@@ -50,7 +50,7 @@ class SitePy:
             handler_args = inspect.signature(handler).parameters
             response_body = handler(params) if handler_args else handler()
             status = '200 OK'
-            headers = [('Content-type', 'text/plain')]
+            headers = [('Content-type', 'text/html')]
             start_response(status, headers)
             return [response_body.encode()]
         elif path.startswith('/' + self.static_dir):
@@ -63,12 +63,12 @@ class SitePy:
                 return [response_body]
             except FileNotFoundError:
                 status = '404 NOT FOUND'
-                headers = [('Content-type', 'text/plain')]
+                headers = [('Content-type', 'text/html')]
                 start_response(status, headers)
                 return ['File not found'.encode()]
         else:
             status = '404 NOT FOUND'
-            headers = [('Content-type', 'text/plain')]
+            headers = [('Content-type', 'text/html')]
             start_response(status, headers)
             return ['Route not found'.encode()]
 

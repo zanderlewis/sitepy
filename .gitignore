@@ -1,5 +1,5 @@
 build/
 dist/
 sitepy.egg-info/
-sitepy/__pycache__/
-sitepy/sitepy.egg-info/
+*/__pycache__/
+*/sitepy.egg-info/
