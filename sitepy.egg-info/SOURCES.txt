@@ -1,7 +1,11 @@
+LICENSE
 README.md
 setup.py
 sitepy/__init__.py
-sitepy/sitepy.py
+sitepy/core.py
+sitepy/gpt.py
+sitepy/profanity.py
+sitepy/recaptcha.py
 sitepy.egg-info/PKG-INFO
 sitepy.egg-info/SOURCES.txt
 sitepy.egg-info/dependency_links.txt

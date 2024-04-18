@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: sitepy
-Version: 0.0.9
+Version: 0.2.2
 Summary: A simple web framework.
 Home-page: https://github.com/WolfTheDeveloper/sitepy
 Author: WolfTheDev
@@ -19,6 +19,7 @@ Classifier: Programming Language :: Python :: 3.12
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
+License-File: LICENSE
 
 # sitepy
 

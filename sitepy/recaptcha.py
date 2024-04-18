@@ -1,7 +1,4 @@
 import requests
-from sitepy import sitepy
-
-app = sitepy()
 
 def recaptcha(key, recaptcha_response):
     data = {
