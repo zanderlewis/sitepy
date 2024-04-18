@@ -42,4 +42,4 @@ This will start a server on localhost:8080 and respond with "Hello, world!" to G
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[Apache](LICENSE)
+[Apache](sitepy/LICENSE)
