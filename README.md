@@ -15,7 +15,7 @@ pip install sitepy
 Here's a basic example of a sitepy application:
 
 ```python
-from sitepy import sitepy
+from sitepy import SitePy
 
 app = sitepy()
 
@@ -31,11 +31,19 @@ This will start a server on localhost:8080 and respond with "Hello, world!" to G
 
 ## Features
 
-- Simple routing: Use the @app.route decorator to define routes.
+- Simple routing: Use decorators to define routes.
 
 - Middleware support: Use app.use to add middleware functions.
 
 - Static file serving: Files in the static directory are served at /static.
+
+- Template serving: Files in the templates/ directory will act as a template.
+
+- Built in features for checking profanity, using Postgres, Mysql, and SQLite, using the openai library, and more.
+
+## Built-Ins
+
+To learn how to use the built-in features, check out the [examples.](examples/)
 
 ## Contributing
 
