@@ -2,6 +2,8 @@
 
 A simple web framework for Python.
 
+![Alt](https://repobeats.axiom.co/api/embed/951ba2337639530ee37774d8f84233efcc45eb02.svg "Repobeats analytics image")
+
 ## Installation
 
 You can install sitepy with pip:
