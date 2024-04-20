@@ -4,12 +4,13 @@ Example of checking for profane words:
 
 ```python
 from sitepy import SitePy
+from sitepy.profanity import check_profanity
 
 app = SitePy()
 
 @app.route('/' methods=['GET', 'POST'])
 def index():
-    if profanity_check("some string"):
+    if check_profanity("some string"):
         return "Contains Profanity"
     else:
         return "Does Not Contain Profanity"
