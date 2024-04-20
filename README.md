@@ -19,7 +19,7 @@ Here's a basic example of a sitepy application:
 ```python
 from sitepy import SitePy
 
-app = sitepy()
+app = SitePy()
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
