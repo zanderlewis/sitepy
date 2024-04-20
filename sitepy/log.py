@@ -10,3 +10,7 @@ def setup_logger(name, log_file, level=logging.INFO):
     logger.addHandler(handler)
 
     return logger
+
+def add_log_message(logger, message, level=logging.INFO):
+    logger.log(level, message)
+    

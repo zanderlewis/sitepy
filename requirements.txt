@@ -5,3 +5,5 @@ openai
 logging
 psycopg2
 mysql
+sqlite3
+jinja2

@@ -2,6 +2,7 @@ import os
 from urllib.parse import parse_qs
 from wsgiref.simple_server import make_server
 import inspect
+from jinja2 import Environment, FileSystemLoader
 
 fof = """
 <!DOCTYPE html>
@@ -354,13 +355,10 @@ class SitePy:
         self.custom_404_page = custom_404_page
         self.custom_500_page = custom_500_page
 
-    def render_template(self, template_name, context={}):
-        template_path = os.path.join(self.templates_dir, template_name)
-        with open(template_path, "r") as f:
-            template = f.read()
-        for key, value in context.items():
-            template = template.replace(f"{{{{ {key} }}}}", value)
-        return template
+    def render_template(self, template_name, **context):
+        env = Environment(loader=FileSystemLoader(self.templates_dir))
+        template = env.get_template(template_name)
+        return template.render(**context)
 
     def route(self, path, methods=["GET"]):
         def wrapper(handler):

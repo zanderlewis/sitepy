@@ -9,7 +9,7 @@ setup(
     url='https://github.com/WolfTheDeveloper/sitepy',
     license='Apache 2.0',
     packages=find_packages(),
-    long_description=open('sitepy/README.md').read(),
+    long_description=open('README.md').read(),
     long_description_content_type='text/markdown',  # Add this line
     classifiers=[
         'Development Status :: 3 - Alpha',
