@@ -1,3 +1,8 @@
+# Profanity Check
+
+Example of checking for profane words:
+
+```python
 from sitepy import SitePy
 
 app = SitePy()
@@ -10,3 +15,4 @@ def index():
         return "Does Not Contain Profanity"
 
 app.run()
+```
