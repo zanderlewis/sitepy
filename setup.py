@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='sitepy',
-    version='0.2.2',
+    version='0.3.0',
     description='A simple web framework.',
     author='WolfTheDev',
     author_email='wolfthedev@gmail.com',

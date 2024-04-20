@@ -383,8 +383,10 @@ class SitePy:
                 middleware(environ)
             handler = None
             for route, methods in self.routes.keys():
-                if path == route and method in methods:
+                match = route.match(path)
+                if match and method in methods:
                     handler = self.routes[(route, methods)]
+                    params = match.groupdict()
                     break
             if handler:
                 try:
@@ -392,7 +394,9 @@ class SitePy:
                 except ValueError:
                     request_body_size = 0
                 request_body = environ["wsgi.input"].read(request_body_size)
+                body_params = parse_qs(request_body.decode()) if request_body else {}
                 params = parse_qs(request_body.decode()) if request_body else {}
+                params.update(body_params)
                 handler_args = inspect.signature(handler).parameters
                 response_body = handler(params) if handler_args else handler()
                 status = "200 OK"
@@ -443,6 +447,16 @@ class SitePy:
                     else f00.encode()
                 )
             ]
+    
+    def json_response(self, data):
+        import json
+        response_body = json.dumps(data)
+        def response(start_response):
+            status = "200 OK"
+            headers = [("Content-type", "application/json")]
+            start_response(status, headers)
+            return [response_body.encode()]
+        return response
 
     def run(self, host="localhost", port=8080):
         try:

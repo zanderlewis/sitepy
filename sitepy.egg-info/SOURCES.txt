@@ -3,7 +3,9 @@ README.md
 setup.py
 sitepy/__init__.py
 sitepy/core.py
+sitepy/db.py
 sitepy/gpt.py
+sitepy/log.py
 sitepy/profanity.py
 sitepy/recaptcha.py
 sitepy.egg-info/PKG-INFO

@@ -2,3 +2,6 @@ tensorflow
 numpy
 requests
 openai
+logging
+psycopg2
+mysql
