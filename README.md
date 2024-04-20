@@ -29,6 +29,22 @@ if __name__ == "__main__":
     app.run()
 ```
 
+Render Templates:
+
+```python
+from sitepy import SitePy
+
+app = SitePy()
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    someVar = "Hello, World!"
+    return app.render_template("index.html", someVar)
+
+if __name__ == "__main__":
+    app.run()
+```
+
 This will start a server on localhost:8080 and respond with "Hello, world!" to GET and POST requests at the root URL.
 
 ## Features
