@@ -17,3 +17,5 @@ def index():
 
 app.run()
 ```
+
+In this example, the string `"some string"` will return `False`.
