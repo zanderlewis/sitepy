@@ -1,4 +1,4 @@
-from word_list import words as w
+from .word_list import words as w
 
 
 def check_profanity(text):
