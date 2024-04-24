@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='sitepy',
-    version='0.4.0',
+    version='0.4.1',
     description='A simple web framework.',
     author='WolfTheDev',
     author_email='wolfthedev@gmail.com',
     url='https://github.com/WolfTheDeveloper/sitepy',
-    license='Apache 2.0',
+    license=open('LICENSE').read(),
     packages=find_packages(),
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',  # Add this line
