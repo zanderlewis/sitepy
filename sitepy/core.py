@@ -381,10 +381,8 @@ class SitePy:
                 middleware(environ)
             handler = None
             for route, methods in self.routes.keys():
-                match = route.match(path)
-                if match and method in methods:
+                if route == path and method in methods:
                     handler = self.routes[(route, methods)]
-                    params = match.groupdict()
                     break
             if handler:
                 try:
@@ -446,15 +444,9 @@ class SitePy:
                 )
             ]
     
-    def json_response(self, data):
+    def tojson(self, data):
         import json
-        response_body = json.dumps(data)
-        def response(start_response):
-            status = "200 OK"
-            headers = [("Content-type", "application/json")]
-            start_response(status, headers)
-            return [response_body.encode()]
-        return response
+        return json.dumps(data)
 
     def run(self, host="localhost", port=8080):
         try:
