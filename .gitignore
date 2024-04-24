@@ -3,3 +3,4 @@ dist/
 sitepy.egg-info/*
 */__pycache__/
 */sitepy.egg-info/
+sitepy/custom_log.log
